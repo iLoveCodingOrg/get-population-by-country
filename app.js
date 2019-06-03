@@ -1,6 +1,4 @@
-// When the Select OPTION changes
-// Make another call to get the info
-// Print the info on the screen
+// 
 
 document.addEventListener('DOMContentLoaded', ()=>{
     const population = document.querySelector('.population')
@@ -23,7 +21,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
       })
   
     function printCountries(list){
-      console.log(list)
       list.forEach((item)=>{
         const elem = document.createElement('option')
         elem.textContent = item;
@@ -32,7 +29,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     }
   
     function getPopulation(country){
-      fetch(`http://api.population.io:80/1.0/population/2000/${country}/100/`, {
+      fetch(`http://api.population.io:80/1.0/population/2000/${country}/`, {
         headers: {
           accept: 'application/json; charset=utf=8'
         }
@@ -41,8 +38,14 @@ document.addEventListener('DOMContentLoaded', ()=>{
         return res.json()
       })
       .then((json)=>{
-        population.textContent = json[0].total
-        console.log(json)
+        const total = json.reduce((accumulator, item)=>{
+          if(item.age > 90){
+            return accumulator + item.total
+          } else {
+            return accumulator
+          }
+        }, 0)
+        population.textContent = total
       })
     }
   

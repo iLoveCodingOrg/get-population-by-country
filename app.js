@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     })
   
   
-    fetch('http://api.population.io:80/1.0/countries', {
+    fetch('http://54.72.28.201:80/1.0/countries', {
       headers: {
         accept: 'application/json; charset=utf=8'
       }

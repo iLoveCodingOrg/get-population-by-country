@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
       getPopulation(event.target.selectedOptions[0].innerText);
     })
   
-    fetch('http://54.72.28.201:80/1.0/countries', {
+    fetch('https://54.72.28.201:80/1.0/countries', {
       headers: {
         accept: 'application/json; charset=utf=8'
       }
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
     }
   
     function getPopulation(country){
-      fetch(`http://54.72.28.201:80/1.0/population/2000/${country}/`, {
+      fetch(`https://54.72.28.201:80/1.0/population/2000/${country}/`, {
         headers: {
           accept: 'application/json; charset=utf=8'
         }

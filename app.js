@@ -5,7 +5,7 @@
 
   document.addEventListener('DOMContentLoaded', ()=>{
     const selectElem = document.querySelector('select#countries')
-    fetch('http://54.72.28.201:80/1.0/countries', {
+    fetch('https://54.72.28.201:80/1.0/countries', {
       headers: {
         accept: 'application/json; charset=utf=8'
       }
